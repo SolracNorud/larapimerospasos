@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Category;
 
+use Illuminate\Http\Response;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class PutRequest extends FormRequest
 {
@@ -15,6 +17,14 @@ class PutRequest extends FormRequest
         return true;
     }
 
+    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    {
+        if ($this->expectsJson()) {
+            $response = new Response($validator->errors(), 422);
+            throw new ValidationException($validator, $response);
+        }
+    }
+    
     /**
      * Get the validation rules that apply to the request.
      *
