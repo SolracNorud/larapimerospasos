@@ -13,3 +13,7 @@ a{
 :root{
     --oruga-modal-content-padding:0
 }
+
+.o-field_message{
+    @apply text-red-400
+}
