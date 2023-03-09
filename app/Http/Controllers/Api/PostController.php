@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return response()->json(Post::paginate(10));
+        return response()->json(Post::with('category')->paginate(10));
     }
 
     /**
@@ -66,7 +66,8 @@ class PostController extends Controller
      */
     public function update(PutRequest $request, Post $post)
     {
-        return response()->json($post->update($request->validate()));
+        $post->update($request->validated());
+        return response()->json($post);
     }
 
     /**

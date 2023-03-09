@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1{
+    @apply text-3xl text-center my-5
+}
+
+a{
+    @apply mr-5
+}
+
+:root{
+    --oruga-modal-content-padding:0
+}

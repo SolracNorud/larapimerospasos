@@ -33,3 +33,8 @@ Route::resource('category', CategoryController::class);
 // Route::delete('post/{post}', [PostController::class, 'delete']);
 
 
+Route::get('/vue/{n1?}/{n2?}',function () {
+    return view('vue');
+});
+
+
